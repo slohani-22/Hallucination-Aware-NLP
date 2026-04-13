@@ -173,7 +173,7 @@ def hallucination_aware_answer(question, paragraphs):
 
     # Much softer contradiction rule
     if contradictions >= 2 and qa_score < 0.25:
-        return "Evidence conflict detected."
+        return fallback_answer_from_context(top_paragraphs)
 
     answer = clean_answer(answer)
     if not answer:
